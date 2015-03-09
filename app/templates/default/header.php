@@ -7,12 +7,12 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title><?php echo $data['title'] . ' - ' . SITETITLE; //SITETITLE defined in app/core/config.php     ?></title>
+        <title><?php echo $data['title'] . ' - ' . SITETITLE; //SITETITLE defined in app/core/config.php       ?></title>
 
         <?php
         helpers\assets::css(array(
-            'http://' . helpers\url::template_path() . 'assets/css/bootstrap.min.css',
-            'http://' . helpers\url::template_path() . 'assets/css/dashboard.css',
+            helpers\url::template_path() . 'assets/css/bootstrap.min.css',
+            helpers\url::template_path() . 'assets/css/dashboard.css',
         ))
         ?>
     </head>
