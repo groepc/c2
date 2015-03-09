@@ -13,6 +13,7 @@
         helpers\assets::css(array(
             helpers\url::template_path() . 'assets/css/bootstrap.min.css',
             helpers\url::template_path() . 'assets/css/dashboard.css',
+            helpers\url::template_path() . 'assets/css/login.css',
         ))
         ?>
     </head>

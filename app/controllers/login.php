@@ -4,7 +4,7 @@ namespace controllers;
 
 use core\view;
 
-class Welcome extends \core\controller {
+class Login extends \core\controller {
 
     /**
      * Call the parent construct
@@ -12,18 +12,16 @@ class Welcome extends \core\controller {
     public function __construct() {
         parent::__construct();
 
-        $this->language->load('welcome');
     }
 
     /**
      * Define Index page title and load template files
      */
     public function index() {
-        $data['title'] = $this->language->get('welcome_text');
-        $data['welcome_message'] = $this->language->get('welcome_message');
+        $data['title'] = 'Aanmelden studenten';
 
         View::rendertemplate('header', $data);
-        View::render('welcome/welcome', $data);
+        View::render('login/index', $data);
         View::rendertemplate('footer', $data);
     }
 
