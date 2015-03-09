@@ -2,7 +2,7 @@
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Menu item</a></li>
-            <li><a href="#">Menu item</a></li>
+            <li><a href="<?php echo DIR ?>subpage">Menu item</a></li>
             <li><a href="#">Menu item</a></li>
             <li><a href="#">Menu item</a></li>
         </ul>

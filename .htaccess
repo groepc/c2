@@ -1,8 +1,8 @@
-Options -Indexes
+Options -Indexes +FollowSymLinks
 
 <IfModule mod_rewrite.c>
 
- 	Options -Indexes
+ 	Options -Indexes +FollowSymLinks
 
 	RewriteEngine On
 	RewriteBase /
