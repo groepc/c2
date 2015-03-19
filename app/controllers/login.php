@@ -3,6 +3,7 @@
 namespace controllers;
 
 use core\view;
+use models\Login\Login as loginHandler;
 
 class Login extends \core\controller {
 
@@ -28,13 +29,10 @@ class Login extends \core\controller {
     /**
      * Define Subpage page title and load template files
      */
-    public function subpage() {
-        $data['title'] = $this->language->get('subpage_text');
-        $data['welcome_message'] = $this->language->get('subpage_message');
+    public function process() {
+        $login = new LoginHandler;
+        $login->checkAuth(1,1);
 
-        View::rendertemplate('header', $data);
-        View::render('welcome/subpage', $data);
-        View::rendertemplate('footer', $data);
     }
 
 }
