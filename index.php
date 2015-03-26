@@ -68,6 +68,7 @@ Router::any('', '\controllers\welcome@index');
 Router::any('/subpage', '\controllers\welcome@subpage');
 Router::any('/login', '\controllers\login@index');
 Router::any('/login/process', '\controllers\login@process');
+Router::any('/cijferlijst', '\controllers\cijferlijst@index');
 
 //if no route found
 Router::error('\core\error@index');

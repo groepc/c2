@@ -21,8 +21,10 @@ class Login extends \core\model {
         if (!empty($result)) {
             \helpers\session::set('idAuthorize', 1);
             \helpers\session::set('login', true);
-            \helpers\session::set('name', $result['voornaam'] . ' ' . $result['tussenvoegsel'] . ' ' . $result['achternaam']);
-            \helpers\session::set('rol_id', $result['rolID']);
+			
+            \helpers\session::set('userID', $result[0]->ID);
+            \helpers\session::set('name', $result[0]->voornaam . ' ' . $result[0]->tussenvoegsel . ' ' . $result[0]->achternaam);
+            \helpers\session::set('rol_id', $result[0]->rolID);
             \helpers\url::redirect('');
         } else {
             \helpers\session::set('error', 'Gebruikersnaam of wachtwoord onjuist');

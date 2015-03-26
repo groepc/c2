@@ -37,16 +37,16 @@
                 </div>
             </div>
         </nav>
-
+        
         <?php if ($data['title'] !== 'Login') : ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li <?php if ($data['title'] === 'Dashboard'): ?>class="active"<?php endif; ?>><a href="/">Dashboard</a></li>
-                        <li <?php if ($data['title'] === 'Tentamens'): ?>class="active"<?php endif; ?>><a href="/tentamens">Tentamens aanvragen</a></li>
-                        <li><a href="#">Menu item</a></li>
-                        <li><a href="#">Menu item</a></li>
+                        <li <?php if ($data['title'] === 'Dashboard'): ?>class="active"<?php endif; ?>><a href="<?php echo DIR; ?>">Dashboard</a></li>
+                        <li <?php if ($data['title'] === 'Tentamens'): ?>class="active"<?php endif; ?>><a href="<?php echo DIR; ?>tentamens">Tentamens aanvragen</a></li>
+                        <li <?php if ($data['title'] === 'Cijferlijst'): ?>class="active"<?php endif; ?>><a href="<?php echo DIR; ?>cijferlijst">Cijferlijst</a></li>
+                        
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

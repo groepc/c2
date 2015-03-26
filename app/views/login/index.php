@@ -1,4 +1,4 @@
-<form class="form-signin" action="/login/process/" method="post">
+<form class="form-signin" action="<?php echo DIR ?>/login/process/" method="post">
     <?php if (isset($data['error'])) : ?>
         <div class="alert alert-danger"><?php echo $data['error']; ?></div>
     <?php endif; ?>

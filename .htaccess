@@ -5,7 +5,7 @@ Options -Indexes +FollowSymLinks
  	Options -Indexes +FollowSymLinks
 
 	RewriteEngine On
-	RewriteBase /
+	RewriteBase /c2/
 
 	# Force to exclude the trailing slash
 	RewriteCond %{REQUEST_FILENAME} !-d
