@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title><?php echo $data['title'] . ' - ' . SITETITLE; //SITETITLE defined in app/core/config.php       ?></title>
+        <title><?php echo $data['title'] . ' - ' . SITETITLE;?></title>
 
         <?php
         helpers\assets::css(array(
@@ -38,4 +38,18 @@
             </div>
         </nav>
 
+        <?php if ($data['title'] !== 'Login') : ?>
         <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li <?php if ($data['title'] === 'Dashboard'): ?>class="active"<?php endif; ?>><a href="/">Dashboard</a></li>
+                        <li <?php if ($data['title'] === 'Tentamens'): ?>class="active"<?php endif; ?>><a href="/tentamens">Tentamens aanvragen</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <h1 class="page-header"><?php echo $data['title']; ?> <?php if (isset($data['subtitle'])): ?><small>- <?php echo $data['subtitle']; ?></small><?php endif; ?></h1>
+
+                    <?php endif; ?>

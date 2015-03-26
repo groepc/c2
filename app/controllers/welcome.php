@@ -3,6 +3,7 @@
 namespace controllers;
 
 use core\view;
+use models\Authenticate\Authenticate;
 
 class Welcome extends \core\controller {
 
@@ -10,6 +11,7 @@ class Welcome extends \core\controller {
      * Call the parent construct
      */
     public function __construct() {
+        Authenticate::isAuthenticated();
         parent::__construct();
 
         $this->language->load('welcome');
@@ -19,7 +21,7 @@ class Welcome extends \core\controller {
      * Define Index page title and load template files
      */
     public function index() {
-        $data['title'] = $this->language->get('welcome_text');
+        $data['title'] = 'Dashboard';
         $data['welcome_message'] = $this->language->get('welcome_message');
 
         View::rendertemplate('header', $data);

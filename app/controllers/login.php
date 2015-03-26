@@ -2,8 +2,7 @@
 
 namespace controllers;
 
-use core\view;
-use models\Login\Login as loginHandler;
+use \core\View;
 
 class Login extends \core\controller {
 
@@ -12,14 +11,17 @@ class Login extends \core\controller {
      */
     public function __construct() {
         parent::__construct();
-
     }
 
     /**
      * Define Index page title and load template files
      */
     public function index() {
-        $data['title'] = 'Aanmelden studenten';
+        $data['title'] = 'Login';
+        $error = \helpers\Session::pull('error');
+        if ($error !== false) {
+            $data['error'] = $error;
+        }
 
         View::rendertemplate('header', $data);
         View::render('login/index', $data);
@@ -30,9 +32,8 @@ class Login extends \core\controller {
      * Define Subpage page title and load template files
      */
     public function process() {
-        $login = new LoginHandler;
-        $login->checkAuth(1,1);
-
+        $login = new \models\Login\Login;
+        $login->checkAuth($_POST['username'], $_POST['password']);
     }
 
 }
