@@ -65,10 +65,16 @@ use \core\router,
 
 //define routes
 Router::any('', '\controllers\welcome@index');
-Router::any('/subpage', '\controllers\welcome@subpage');
+
+//login urls
 Router::any('/login', '\controllers\login@index');
 Router::any('/login/process', '\controllers\login@process');
+
+//cijferlijst urls
 Router::any('/cijferlijst', '\controllers\cijferlijst@index');
+
+//tentamen urls
+Router::any('/tentamens', '\controllers\tentamen@index');
 
 //if no route found
 Router::error('\core\error@index');
