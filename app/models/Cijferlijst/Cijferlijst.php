@@ -10,10 +10,31 @@ class Cijferlijst extends \core\model {
      * @param int $userID userID van de gebruiker
      * @return array cijferlijst van de gebruiker
      */
-    public function getCijferlijst($userID) {        
+    public function getCijferlijst($userID) {
 
-        return $this->_db->select('SELECT * FROM evaluatie WHERE gebruikerID=:userID', array(':userID' => $userID));
-        
-    } 
+        $array = $this->_db->select('SELECT planning.*, inschrijving.cijfer, '
+                . "inschrijving.aanwezig, DATE_FORMAT(planning.datumtijd, '%d-%m-%Y %H:%i') datumeu FROM "
+                . 'planning  LEFT JOIN inschrijving ON '
+                . '(planning.id=inschrijving.planningID AND '
+                . 'inschrijving.gebruikerID=:userID) WHERE '
+                . 'planning.gebruikerID=:userID ORDER BY '
+                . 'planning.datumtijd DESC', array(':userID' => $userID));
+        foreach ($array as $key => $item) {
+
+            if (!empty($item->cijfer) && $item->datumtijd > date('Y-m-d H:i:s')) {
+                
+            } elseif (empty($item->cijfer) && $item->aanwezig) {
+                $cijfer = 'N.T.B.';
+            } elseif ($item->datumtijd < date('Y-m-d H:i:s') && empty($item->aanwezig)) {
+                $cijfer = 'N.T.B.';
+            } else {
+                $cijfer = $item->cijfer;
+            }
+            $array{$key}->cijfer = $cijfer;
+            $array{$key}->uitgevoerd = (!empty($item->aanwezig)) ? 'Ja' : 'Nee';
+        }
+
+        return $array;
+    }
 
 }
