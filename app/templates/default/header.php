@@ -44,7 +44,7 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li <?php if ($data['title'] === 'Dashboard'): ?>class="active"<?php endif; ?>><a href="<?php echo DIR; ?>">Dashboard</a></li>
-                        <li <?php if ($data['title'] === 'Tentamens'): ?>class="active"<?php endif; ?>><a href="<?php echo DIR; ?>tentamens">Tentamens aanvragen</a></li>
+                        <li <?php if ($data['title'] === 'Tentamens'): ?>class="active"<?php endif; ?>><a href="<?php echo DIR; ?>tentamens">Inschrijven tentamens</a></li>
                         <li <?php if ($data['title'] === 'Cijferlijst'): ?>class="active"<?php endif; ?>><a href="<?php echo DIR; ?>cijferlijst">Cijferlijst</a></li>
                         
                     </ul>
