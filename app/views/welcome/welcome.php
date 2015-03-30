@@ -1,5 +1,1 @@
-
-
-    <p>Hallo wereld!</p>
-</div>
-</div>
+<p>Hallo <?php echo $data['name']; ?>!</p>
