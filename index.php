@@ -69,6 +69,7 @@ Router::any('', '\controllers\welcome@index');
 //login urls
 Router::any('/login', '\controllers\login@index');
 Router::any('/login/process', '\controllers\login@process');
+Router::any('/logout', '\controllers\login@logout');
 
 //cijferlijst urls
 Router::any('/cijferlijst', '\controllers\cijferlijst@index');

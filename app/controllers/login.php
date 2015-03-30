@@ -35,5 +35,10 @@ class Login extends \core\controller {
         $login = new \models\Login\Login;
         $login->checkAuth($_POST['username'], $_POST['password']);
     }
+    
+    public function logout() {
+        \helpers\session::destroy();
+        \helpers\url::redirect('login');
+    }
 
 }
