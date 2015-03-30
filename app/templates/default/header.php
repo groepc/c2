@@ -32,7 +32,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="login.html">Uitloggen</a></li>
+                        <li><a href="/logout">Uitloggen</a></li>
                     </ul>
                 </div>
             </div>
