@@ -28,20 +28,20 @@
                 <td><?= $resultaat->tentamencode ?></td>
                 <td><?= $resultaat->lokaalCode ?></td>
 				<td>
-					<?php 	$x =0;
+					<?php 	$check = false;
 							foreach($data['inschrijving'] as $inschrijving):
 								if($resultaat->ID == $inschrijving->planningID):
-									$x++;
+									$check = true;
 								endif;
 							endforeach;
-							if($x == 0 && $dateNow > $dateBegin && $dateNow < $dateEnd): ?>
+							if($check == false && $dateNow > $dateBegin && $dateNow < $dateEnd): ?>
 							
 					<a href="#">Inschrijven</a>
 					<?php	endif; ?>
 							
 				</td>
 				<td>
-           			<?php	if($x > 0): ?> 
+           			<?php	if($check == true): ?> 
            			<a href="#">Uitschrijven</a>
            			<?php	endif; ?>
            		</td>
