@@ -26,6 +26,9 @@ class Cijferlijst extends \core\controller {
         $cijferlijst = new cijferlijstje;
         $data['cijferlijst'] = $cijferlijst->getCijferlijst(\helpers\session::get('userID'));
         
+		//print_r($data['cijferlijst']);
+		//die;
+		
         View::rendertemplate('header', $data);
         View::render('cijferlijst/index', $data);
         View::rendertemplate('footer', $data);

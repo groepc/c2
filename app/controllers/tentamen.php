@@ -4,6 +4,7 @@ namespace controllers;
 
 use core\view;
 use models\Authenticate\Authenticate;
+use models\Tentamen\Tentamen as tentamenlijstje;
 
 class Tentamen extends \core\controller {
 
@@ -22,8 +23,9 @@ class Tentamen extends \core\controller {
     public function index() {
         $data['title'] = 'Tentamen overzicht';
 		
-        //$cijferlijst = new cijferlijstje;
-        //$data['tentamen'] = $cijferlijst->getCijferlijst(\helpers\session::get('userID'));
+        $tentamenlijst = new tentamenlijstje;
+        $data['tentamen'] = $tentamenlijst->getTentamens();
+        $data['inschrijving'] = $tentamenlijst->getInschrijvingen(\helpers\session::get('userID'));
         
         View::rendertemplate('header', $data);
         View::render('tentamen/index', $data);
