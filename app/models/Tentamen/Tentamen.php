@@ -29,4 +29,20 @@ class Tentamen extends \core\model {
 				. 'WHERE gebruikerID=:userID ', array(':userID' => $userID));
 		return $array;
 	}
+	
+	/**
+     * Schrijf de gebruiker in voor een tentamen
+     */
+	
+	public function schrijfIn($userID, $tentamenID) {
+		
+		$data = array(			
+			'planningID' => $tentamenID,
+			'gebruikerID' => $userID,
+			'datumtijd' => now()			
+		);
+		
+		$array = $this->_db->insert(PREFIX.'inschrijving', $data);
+		
+	}
 }

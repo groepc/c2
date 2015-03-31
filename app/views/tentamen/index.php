@@ -36,13 +36,13 @@
 							endforeach;
 							if($check == false && $dateNow > $dateBegin && $dateNow < $dateEnd): ?>
 							
-					<a href="#">Inschrijven</a>
+					<a href="tentamens/?type=in&tentanmenID=<?= $inschrijving->planningID ?>">Inschrijven</a>
 					<?php	endif; ?>
 							
 				</td>
 				<td>
            			<?php	if($check == true): ?> 
-           			<a href="#">Uitschrijven</a>
+           			<a href="tentamens/?type=uit&tentanmenID=<?= $inschrijving->planningID ?>">Uitschrijven</a>
            			<?php	endif; ?>
            		</td>
             </tr>
