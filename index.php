@@ -77,6 +77,10 @@ Router::any('/cijferlijst', '\controllers\cijferlijst@index');
 //tentamen urls
 Router::any('/tentamens', '\controllers\tentamen@index');
 
+//evaluatie
+Router::any('/evaluatie', '\controllers\evaluatie@index');
+Router::any('/evaluatie/(:num)/(:any)', '\controllers\evaluatie@create');
+
 //if no route found
 Router::error('\core\error@index');
 
