@@ -7,7 +7,8 @@
             <th>Datum</th>
             <th>Tentamen</th>
             <th>Lokaal</th>
-            <th></th>
+            <th>Inschrijven</th>
+            <th>Uitschrijven</th>
         </tr>
     </thead>
 
