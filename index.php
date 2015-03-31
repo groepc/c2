@@ -76,6 +76,7 @@ Router::any('/cijferlijst', '\controllers\cijferlijst@index');
 
 //tentamen urls
 Router::any('/tentamens', '\controllers\tentamen@index');
+Router::get('/tentamens/(:any)/(:num)', '\controllers\tentamen@index');
 
 //evaluatie
 Router::any('/evaluatie', '\controllers\evaluatie@index');

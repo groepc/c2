@@ -19,10 +19,23 @@ class Tentamen extends \core\controller {
     /**
      * Define Index page title and load template files
      */
-    public function index() {
+    public function index($type = false, $id = false) {
         $data['title'] = 'Tentamen overzicht';
 		
         $tentamen = new tentamentje;
+		$data['error'] = '';
+		
+		if ($type !== false && $id !== false) {
+			
+			if ($type == 'in') {
+				$tentamen->schrijfIn(\helpers\session::get('userID'), $id);
+			} elseif ($type == 'uit') {
+				$tentamen->schrijfUit(\helpers\session::get('userID'), $id);
+			} else {
+				$data['error'] = 'Er is iets fout gegaan, probeer opnieuw.';
+			}
+		}
+		
         $data['tentamen'] = $tentamen->getTentamens();
         $data['inschrijving'] = $tentamen->getInschrijvingen(\helpers\session::get('userID'));
         
@@ -30,4 +43,6 @@ class Tentamen extends \core\controller {
         View::render('tentamen/index', $data);
         View::rendertemplate('footer', $data);
     }
+	
+	
 }
