@@ -14,10 +14,10 @@ class Cijferlijst extends \core\model {
 
         $array = $this->_db->select('SELECT planning.*, inschrijving.cijfer, '
                 . "inschrijving.aanwezig, DATE_FORMAT(planning.datumtijd, '%d-%m-%Y %H:%i') datumeu FROM "
-                . 'planning  LEFT JOIN inschrijving ON '
-                . '(planning.id=inschrijving.planningID AND '
+                . 'inschrijving  LEFT JOIN planning ON '
+                . '(inschrijving.planningID=planning.id AND '
                 . 'inschrijving.gebruikerID=:userID) WHERE '
-                . 'planning.gebruikerID=:userID ORDER BY '
+                . 'inschrijving.gebruikerID=:userID ORDER BY '
                 . 'planning.datumtijd DESC', array(':userID' => $userID));
         foreach ($array as $key => $item) {
 
