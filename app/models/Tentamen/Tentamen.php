@@ -39,10 +39,25 @@ class Tentamen extends \core\model {
 		$data = array(			
 			'planningID' => $tentamenID,
 			'gebruikerID' => $userID,
-			'datumtijd' => now()			
+			'datumtijd' => date('Y-m-d H:i:s')			
 		);
 		
-		$array = $this->_db->insert(PREFIX.'inschrijving', $data);
+		$array = $this->_db->insert('inschrijving', $data);
+		
+	}
+	
+	/**
+     * Schrijf de gebruiker uit voor een tentamen
+     */
+	
+	public function schrijfUit($userID, $tentamenID) {
+		
+		$data = array(			
+			'planningID' => $tentamenID,
+			'gebruikerID' => $userID			
+		);
+		
+		$array = $this->_db->delete('inschrijving', $data);
 		
 	}
 }

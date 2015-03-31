@@ -1,3 +1,5 @@
+<?php echo $data['error']; ?>
+    
 <table class="table">
 
     <thead>
@@ -36,13 +38,13 @@
 							endforeach;
 							if($check == false && $dateNow > $dateBegin && $dateNow < $dateEnd): ?>
 							
-					<a href="tentamens/?type=in&tentanmenID=<?= $inschrijving->planningID ?>">Inschrijven</a>
+					<a href="<?php echo DIR; ?>tentamens/in/<?= $resultaat->ID ?>">Inschrijven</a>
 					<?php	endif; ?>
 							
 				</td>
 				<td>
            			<?php	if($check == true): ?> 
-           			<a href="tentamens/?type=uit&tentanmenID=<?= $inschrijving->planningID ?>">Uitschrijven</a>
+           			<a href="<?php echo DIR; ?>tentamens/uit/<?= $resultaat->ID ?>">Uitschrijven</a>
            			<?php	endif; ?>
            		</td>
             </tr>
