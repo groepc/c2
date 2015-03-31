@@ -22,7 +22,7 @@
             endforeach;
         else :
             ?>
-    <div class="alert alert-info">Er zijn geen tentamens gevonden waarvoor je een evaluatie kunt schrijven.</div>
-        <?php endif; ?>
-    </tbody>
+        <div class="alert alert-info">Er zijn geen tentamens gevonden waarvoor je een evaluatie kunt schrijven.</div>
+    <?php endif; ?>
+</tbody>
 </table>
