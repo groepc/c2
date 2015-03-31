@@ -29,10 +29,12 @@ class Tentamen extends \core\controller {
 			
 			if ($type == 'in') {
 				$tentamen->schrijfIn(\helpers\session::get('userID'), $id);
+				\helpers\url::redirect('tentamens');
 			} elseif ($type == 'uit') {
 				$tentamen->schrijfUit(\helpers\session::get('userID'), $id);
 			} else {
 				$data['error'] = 'Er is iets fout gegaan, probeer opnieuw.';
+				\helpers\url::redirect('tentamens');
 			}
 		}
 		
