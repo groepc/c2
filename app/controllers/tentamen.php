@@ -30,7 +30,7 @@ class Tentamen extends \core\controller {
             if ($type == 'in') {
                 $result = $tentamen->schrijfIn(\helpers\session::get('userID'), $id);
                 if ($result === false) {
-                    \helpers\session::set('error', 'Je kunt je niet inschrijven voor dit tentamen omdat je al bent ingeschreven voor het zelfde tentamen of op de zelfde tijd');
+                    \helpers\session::set('error', 'Je kunt je niet inschrijven voor dit tentamen omdat je al bent ingeschreven voor hetzelfde tentamen of op dezelfde tijd');
                 }
                 \helpers\url::redirect('tentamens');
             } elseif ($type == 'uit') {
