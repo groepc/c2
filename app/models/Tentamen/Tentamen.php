@@ -13,7 +13,7 @@ class Tentamen extends \core\model {
 
 		$array = $this->_db->select('SELECT *, '
 			. "DATE_FORMAT(planning.datumtijd, '%d-%m-%Y %H:%i') datumeu "
-			. 'FROM planning ');
+			. 'FROM planning ORDER BY planning.datumtijd ASC');
 		return $array;
 	}
 
