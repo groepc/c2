@@ -1,5 +1,9 @@
-<?php
-echo $data['error'];
+<?php if (!empty($data['error'])) : ?>
+    <div class="alert alert-danger">
+        <?php echo $data['error']; ?>
+    </div>
+    <?php
+endif;
 if (count($data['tentamen']) > 0) :
     ?>
     <table class="table">
