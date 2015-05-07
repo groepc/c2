@@ -42,8 +42,7 @@ if (count($data['tentamen']) > 0) :
                                     $check = true;
                                 endif;
                             endforeach;
-                            if ($check == false && $dateNow > $dateBegin && $dateNow < $dateEnd):
-                                ?>
+                            if ($check == false && $dateNow > $dateBegin && $dateNow < $dateEnd): ?>
 
                                 <a href="<?php echo DIR; ?>tentamens/in/<?= $resultaat->ID ?>">Inschrijven</a>
                             <?php endif; ?>
