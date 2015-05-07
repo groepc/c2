@@ -38,14 +38,18 @@ class Evaluatie extends \core\controller {
         $data = ['code' => $code];
         $data['title'] = 'Evaluatie';
         $data['created'] = false;
+        $tentamenlijst = new model;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST;
-            $tentamenlijst = new model;
             $data['gebruikerID'] = \helpers\Session::get('userID');
+            $data['created_at'] = date('Y-m-d H:i:s');
             $tentamenlijst->insertEvaluation($data);
             $data['created'] = true;
         }
 
+        $data['alreadyCreated'] = $tentamenlijst->checkEvaluation(\helpers\Session::get('userID'), $code);
+
+        
         View::rendertemplate('header', $data);
         View::render('evaluatie/create', $data);
         View::rendertemplate('footer', $data);

@@ -2,9 +2,22 @@
     <div class="col-sm-8">
         <?php if ($error): ?>
             <?php echo \core\error::display($error); ?>
-        <?php endif; ?>
-
-        <?php if ($data['created'] === true): ?>
+            <?php
+        endif;
+        if (!empty($data['alreadyCreated'])) :
+            ?>
+            <div class="alert alert-info">
+                Deze evaluatie is ingevoerd op: <?php echo $data['alreadyCreated']->datumeu; ?> om <?php echo $data['alreadyCreated']->insertTime; ?>
+            </div>
+            <div class="form-horizontal">
+                <?php include 'inputFormView.php'; ?>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <a class="btn btn-success" href="<?php echo DIR; ?>evaluatie">Ga Terug</a>
+                    </div>
+                </div>
+            </div>
+        <?php elseif ($data['created'] === true): ?>
             <div class="alert alert-success">
                 Evaluatie succesvol opgeslagen.
             </div>
@@ -13,36 +26,7 @@
 
             <form class="form-horizontal" method="post" action="">
                 <!-- Exam code -->
-                <div class="form-group">
-                    <label for="datumtijd" class="col-sm-2 control-label">Datum</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="datumtijd" name="datumtijd" value="<?php echo date('Y-m-d'); ?>" readonly>
-                    </div>
-                </div>
-
-                <!-- Exam speciality -->
-                <div class="form-group">
-                    <label for="tentamenCode" class="col-sm-2 control-label">Tentamencode</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="tentamenCode" name="tentamenCode" value="<?php echo $data['code'] ?>" readonly>
-                    </div>
-                </div>
-
-                <!-- Exam speciality -->
-                <div class="form-group">
-                    <label for="cijfer" class="col-sm-2 control-label">Cijfer</label>
-                    <div class="col-sm-10">
-                        <input type="number" min="1" max="10" step="0.1" class="form-control" id="cijfer" name="cijfer" placeholder="Cijfer" required>
-                    </div>
-                </div>
-
-                <!-- Exam speciality -->
-                <div class="form-group">
-                    <label for="examStudents" class="col-sm-2 control-label">Opmerkingen</label>
-                    <div class="col-sm-10">
-                        <textarea name="document" id="" cols="30" rows="10" class="form-control"></textarea>
-                    </div>
-                </div>
+                <?php include 'inputFormCreate.php'; ?>
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
