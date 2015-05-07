@@ -1,11 +1,6 @@
-<p>Hallo <?php echo $data['name']; ?>!</p>
-
-<pre>
-<?php
-print_r($data);
-?>
-</pre>
-
+<h3>Hallo <?php echo $data['name']; ?>!</h3>
+<hr>
+<h4>Komende tentamens</h4>
 
 <table class="table">
 
@@ -14,8 +9,6 @@ print_r($data);
 			<th>Datum</th>
 			<th>Tentamen</th>
 			<th>Lokaal</th>
-			<th>Inschrijven</th>
-			<th>Uitschrijven</th>
 		</tr>
 	</thead>
 
@@ -25,7 +18,15 @@ print_r($data);
 			foreach ($data['tentamen'] as $tentamen):
 				$date = strtotime($tentamen->datumtijd);
 				if($date >= $dateNow):
-					echo 'test ';
+					foreach ($data['inschrijving'] as $inschrijving):
+						if ($tentamen->ID == $inschrijving->planningID): ?>
+							<tr>
+								<td><?= $tentamen->datumeu ?></td>
+								<td><?= $tentamen->tentamencode ?></td>
+								<td><?= $tentamen->lokaalCode ?></td>
+							</tr>
+						<?php endif;
+					endforeach;
 				endif;
 			endforeach;
 		?>
